@@ -11,8 +11,9 @@ class Loaicongthuc extends Model
     protected $table = "loaicongthuc";
     public $timestamps = false;
     protected $fillable = [
-        'ten_loaicongthuc'];
-    // public function congthuc(){
-    //     return $this->hasMany('App\Congthuc','ma_loaicongthuc','ma_loaicongthuc');
-    // }
+        'ten_loaicongthuc'
+    ];
+    public function congthuc(){
+        return $this->hasMany(Congthuc::class, 'id_lct', 'id');
+    }
 }

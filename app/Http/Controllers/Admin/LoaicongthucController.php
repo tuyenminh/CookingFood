@@ -26,7 +26,7 @@ class LoaicongthucController extends Controller
     public function index(){
         return view('admin.loaicongthuc.list', [
             'title' => 'Danh sách danh mục công thức',
-            'loaicongthucs' => $this->loaicongthucService->get()
+            'loaicongthucs' => $this->loaicongthucService->getAll()
         ]);
     }
     public function destroy(Request $request)

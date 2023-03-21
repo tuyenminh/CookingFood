@@ -15,7 +15,6 @@
                                     @foreach($loaicongthucs as $loaicongthuc)
                                         <option value="{{ $loaicongthuc->id}}">{{ $loaicongthuc->ten_loaicongthuc}}</option>
                                     @endforeach
-
                                     </select>
                             </div>
                         </div>
@@ -38,13 +37,21 @@
                                 <label for="">Thời gian nấu</label>
                                 <input type="text" name="tg_nau" class="form-control" placeholder="Nhập thời gian nấu">
                             </div>  
-                    </div> 
-                    <div class="col-md-6">
+                        </div> 
+
+                    </div>  
                             <div class="form-group">
                                 <label for="">Cách làm</label>
-                                <textarea name="cach_lam" class="form-control">{{ old('cach_lam') }}</textarea>
-                            </div>  
-                    </div> 
+                                <textarea name="cach_lam" id="content" class="form-control">{{ old('cach_lam') }}</textarea>
+                            </div> 
+                            <div class="form-group">
+                                <label for="menu">Hình ảnh</label>
+                                <input type="file" name="file" id="upload" class="form-control">
+                                <div id= "image_show">
+
+                                </div>
+                                <input type="hidden" name="url_hinh" id="thumb">
+                            </div>                     
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Tạo công thức mới</button>
@@ -55,6 +62,6 @@
 @endsection
 @section('footer')
     <script>
-        CKEDITOR.replace( 'content' );
+        CKEDITOR.replace( 'content');
     </script>
 @endsection

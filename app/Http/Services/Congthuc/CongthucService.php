@@ -13,10 +13,11 @@ class CongthucService {
         try {
             // $data = $request->input();
             Congthuc::create([
+                'ma_ct' => (string) $request->input('ma_ct'),
                 'ten_mon' => (string) $request->input('ten_mon'),
                 'cach_lam' => (string) $request->input('cach_lam'),
-                'tg_nau' => (integer) $request->input('tg_nau'),
-                'ten_mon' => (string) $request->input('ten_mon'),
+                'tg_nau' => (string) $request->input('tg_nau'),
+                'id_lct' => (int) $request->input('id_lct')
             ]);
             Session::flash('success', 'Tạo công thức thành công');
         } catch (\Exception $err) {
@@ -26,19 +27,11 @@ class CongthucService {
         }
         return true;
     }
-    public function get(){
-        return Congthuc::orderByDesc('id')->paginate(15);
+    public function getAll(){
+        return Congthuc::paginate(15);
     }
     public function getloaicongthuc() {
         return Loaicongthuc::where(null)->get();
-    }
-    public function destroy($request) {
-        $loaicongthuc = Loaicongthuc::where('id', $request->input('id'))->first();
-        if ($loaicongthuc) {
-            $loaicongthuc->delete();
-            return true;
-        }
-        return false;
     }
     public function update($request, $congthuc) {
         try {
@@ -52,5 +45,13 @@ class CongthucService {
         }
         return true;
     }
+    public function delete($request) {
+        $congthuc = Congthuc::where('id', $request->input('id'))->first();
+        if ($congthuc) {
+            $congthuc->delete();
+            return true;
+        }
+        return false;
+    }   
 
 }

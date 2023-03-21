@@ -7,7 +7,7 @@
 <table class="table">
         <thead>
             <tr>
-                <th style= "width: 500px;">Mã danh mục</th>
+                <th style= "width: 500px;">STT</th>
                 <th>Tên danh mục</th>
                 <th style= "width: 100px;" >&nbsp;</th>
             </tr>

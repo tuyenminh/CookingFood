@@ -7,9 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Loaikhoahoc extends Model
 {
-    protected $table = "loaikhoahoc";
+    use HasFactory;
+    protected $table = "loaikh";
+    public $timestamps = false;
+    protected $fillable = [
+        'ten_loaikhoahoc'
+    ];
     public function khoahoc(){
-        return $this->hasMany('App\Khoahoc','ma_loaikhoahoc','ma_loaikhoahoc');
+        return $this->hasMany(Khoahoc::class, 'id_lkh', 'id');
     }
 
 }

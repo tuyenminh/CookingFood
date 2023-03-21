@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\User\LoginController;
 use App\Http\Controllers\Admin\MainController;
 use App\Http\Controllers\Admin\LoaicongthucController;
 use App\Http\Controllers\Admin\CongthucController;
+use App\Http\Controllers\Admin\LoaikhoahocController;
+use App\Http\Controllers\Admin\KhoahocController;
 
 
 Route::get('/admin/users/login', [LoginController::class, 'index']);
@@ -33,7 +35,24 @@ Route::middleware(['auth'])->group(function () {
         Route::get('edit/{congthuc}', [CongthucController::class, 'show']);
         Route::DELETE('destroy', [CongthucController::class, 'destroy']);
     }); 
-    
+    #Loaikhoahoc
+    Route::prefix('loaikhoahoc')->group(function(){
+        Route::get('add', [LoaikhoahocController::class, 'create']);
+        Route::post('add', [LoaikhoahocController::class, 'store']);
+        Route::get('list', [LoaikhoahocController::class, 'index']);
+        Route::post('edit/{loaikhoahoc}', [LoaikhoahocController::class, 'update']);
+        Route::get('edit/{loaikhoahoc}', [LoaikhoahocController::class, 'show']);
+        Route::DELETE('destroy', [LoaikhoahocController::class, 'destroy']);
+    }); 
+     #Khoahoc
+     Route::prefix('khoahoc')->group(function(){
+        Route::get('add', [KhoahocController::class, 'create']);
+        Route::post('add', [KhoahocController::class, 'store']);
+        Route::get('list', [KhoahocController::class, 'index']);
+        Route::post('edit/{khoahoc}', [KhoahocController::class, 'update']);
+        Route::get('edit/{khoahoc}', [KhoahocController::class, 'show']);
+        Route::DELETE('destroy', [KhoahocController::class, 'destroy']);
+    }); 
         
     });
 });

@@ -25,6 +25,7 @@ class CongthucFormRequest extends FormRequest
     public function rules()
     {
         return [
+            'ma_ct' => 'required',
             'ten_mon' => 'required',
             'cach_lam' => 'required',
             'tg_nau' => 'required'
@@ -33,6 +34,7 @@ class CongthucFormRequest extends FormRequest
     public function messages()
     {
         return [
+            'ma_ct.required' => 'Vui lòng nhập mã món',
             'ten_mon.required' => 'Vui lòng nhập tên món',
             'cach_lam.required' => 'Vui lòng nhập cách làm',
             'tg_nau.required' => 'Vui lòng chọn thời gian nấu'

@@ -23,7 +23,7 @@ class LoaicongthucService {
         }
         return true;
     }
-    public function get(){
+    public function getAll(){
         return Loaicongthuc::orderByDesc('id')->paginate(15);
     }
     public function destroy($request) {
